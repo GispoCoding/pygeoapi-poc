@@ -15,5 +15,6 @@ services:
         volumes:
             - ./pygeoapi-config.yml:/pygeoapi/local.config.yml
             - ./custom_process:/pygeoapi/pygeoapi/custom_process
+            - ./data:/data
         ports:
             - "5000:80"

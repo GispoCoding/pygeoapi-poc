@@ -237,6 +237,57 @@ resources:
                   name: GRIB
                   mimetype: application/x-grib2
 
+    corine:
+        type: collection
+        title: CORINE Landcover
+        description: CORINE Landcover 20m raster
+        keywords:
+            - corine
+            - landcover
+        extents:
+            spatial:
+                bbox: [-180,-90,180,90]
+                crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+        links:
+            - type: text/html
+              rel: canonical
+              title: information
+              href: https://syke.fi/
+              hreflang: fi-FI
+        providers:
+            - type: coverage
+              name: rasterio
+              data: /data/Clc2018_FI20m.tif
+              format:
+                  name: GTiff
+                  mimetype: image/tiff
+
+    minicorine:
+        type: collection
+        title: Mini CORINE Landcover
+        description: Mini CORINE Landcover 20m raster
+        keywords:
+            - corine
+            - landcover
+            - small
+        extents:
+            spatial:
+                bbox: [-180,-90,180,90]
+                crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+        links:
+            - type: text/html
+              rel: canonical
+              title: information
+              href: https://syke.fi/
+              hreflang: fi-FI
+        providers:
+            - type: coverage
+              name: rasterio
+              data: /data/miniclc.tif
+              format:
+                  name: GTiff
+                  mimetype: image/tiff
+
     test-data:
         type: stac-collection
         title: pygeoapi test data
