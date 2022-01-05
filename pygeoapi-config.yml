@@ -313,3 +313,8 @@ resources:
         type: process
         processor:
             name: pygeoapi.custom_process.world.WorldProcessor
+
+    exterior:
+        type: process
+        processor:
+            name: pygeoapi.custom_process.exterior.ExtProcessor
