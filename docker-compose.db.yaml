@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+    postgis:
+        image: kartoza/postgis:latest
+        ports:
+            - "5432:5432"
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASS=${POSTGRES_PASS}
+        volumes:
+            - ./data/jarvi10.sql:/docker-entrypoint-initdb.d/jarvi10.sql

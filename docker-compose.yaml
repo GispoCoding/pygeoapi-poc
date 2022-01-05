@@ -10,18 +10,10 @@ services:
 
     pygeoapi:
         image: geopython/pygeoapi:latest
+        environment:
+            - POSTGRES_PASS=${POSTGRES_PASS}
         volumes:
             - ./pygeoapi-config.yml:/pygeoapi/local.config.yml
             - ./custom_process:/pygeoapi/pygeoapi/custom_process
         ports:
             - "5000:80"
-
-    postgis:
-        image: kartoza/postgis:latest
-        ports:
-            - "5432:5432"
-        environment:
-            - POSTGRES_USER=postgres
-            - POSTGRES_PASS=${POSTGRES_PASS}
-        volumes:
-            - ./data/jarvi10.sql:/docker-entrypoint-initdb.d/jarvi10.sql
