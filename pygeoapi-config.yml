@@ -272,3 +272,8 @@ resources:
         type: process
         processor:
             name: HelloWorld
+
+    world:
+        type: process
+        processor:
+            name: pygeoapi.custom_process.world.WorldProcessor

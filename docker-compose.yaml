@@ -12,6 +12,7 @@ services:
         image: geopython/pygeoapi:latest
         volumes:
             - ./pygeoapi-config.yml:/pygeoapi/local.config.yml
+            - ./custom_process:/pygeoapi/pygeoapi/custom_process
         ports:
             - "5000:80"
 
