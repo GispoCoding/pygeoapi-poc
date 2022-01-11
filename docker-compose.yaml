@@ -6,6 +6,7 @@ services:
         environment:
             - POSTGRES_PASS=${POSTGRES_PASS}
             - URL=${URL}
+            - DB_HOSTNAME=${DB_HOSTNAME}
         volumes:
             - ./pygeoapi-config.yml:/pygeoapi/local.config.yml
             - ./custom_process:/pygeoapi/pygeoapi/custom_process

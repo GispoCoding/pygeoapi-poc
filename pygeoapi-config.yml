@@ -201,7 +201,7 @@ resources:
             - type: feature
               name: PostgreSQL
               data:
-                  host: pygeoapi-poc_postgis_1
+                  host: ${DB_HOSTNAME}
                   dbname: gis
                   user: postgres
                   password: ${POSTGRES_PASS}
