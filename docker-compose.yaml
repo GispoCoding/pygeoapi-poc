@@ -1,17 +1,11 @@
 version: "3"
 
 services:
-    nginx-proxy:
-        image: nginx
-        volumes:
-            - ./nginx.conf:/etc/nginx/nginx.conf:ro
-        ports:
-            - "80:80"
-
     pygeoapi:
         image: geopython/pygeoapi:latest
         environment:
             - POSTGRES_PASS=${POSTGRES_PASS}
+            - URL=${URL}
         volumes:
             - ./pygeoapi-config.yml:/pygeoapi/local.config.yml
             - ./custom_process:/pygeoapi/pygeoapi/custom_process

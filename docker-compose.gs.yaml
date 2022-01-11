@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+    geoserver:
+        image: kartoza/geoserver:latest
+        environment:
+            - GEOSERVER_ADMIN_PASSWORD=${GS_PASS}
+            - HTTP_PROXY_NAME=${URL}
+        ports:
+            - "8080:8080"
