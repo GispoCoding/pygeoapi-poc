@@ -80,8 +80,9 @@ class ExtProcessor(BaseProcessor):
         if name is None:
             raise ProcessorExecuteError('Cannot process without a name')
 
+        pghost = os.environ["DB_HOSTNAME"]
         pgpass = os.environ["POSTGRES_PASS"]
-        conn = psycopg2.connect(user="postgres", password=pgpass, host="pygeoapi-poc_postgis_1", port="5432", database="gis")
+        conn = psycopg2.connect(user="postgres", password=pgpass, host=pghost, port="5432", database="gis")
 
         cur = conn.cursor()
         query = "SELECT ogc_fid, nimi, ST_AsText(ST_ExteriorRing(wgs_geom)) AS ext_ring FROM public.jarvi10 WHERE nimi = %s LIMIT 1;"

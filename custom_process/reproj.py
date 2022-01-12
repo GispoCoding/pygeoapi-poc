@@ -105,8 +105,9 @@ class ReprojProcessor(BaseProcessor):
         if not all((in_crs, out_crs, geom)):
             raise ProcessorExecuteError('Missing some parameters')
 
+        pghost = os.environ["DB_HOSTNAME"]
         pgpass = os.environ["POSTGRES_PASS"]
-        conn = psycopg2.connect(user="postgres", password=pgpass, host="pygeoapi-poc_postgis_1", port="5432", database="gis")
+        conn = psycopg2.connect(user="postgres", password=pgpass, host=pghost, port="5432", database="gis")
 
         cur = conn.cursor()
         query = "SELECT ST_AsText(ST_Transform(ST_GeomFromText(%s, %s), %s))"
