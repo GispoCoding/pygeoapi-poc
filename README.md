@@ -26,6 +26,7 @@ Restarting the DB can take up to a few minutes, check progress by running `docke
 
 Run pygeoapi: `docker-compose up -d`.
 Open [localhost:5000](http://localhost:5000) in your web browser.
+**Note**: if you run into problems, check the pygeoapi log with `docker-compose logs`.
 
 Run GeoServer and nginx (optional): `docker-compose -f docker-compose.gs.yaml up -d && sleep 30 && docker-compose -f docker-compose.nginx.yaml up -d`.
 You can now access pygeoapi at [localhost](http://localhost/) and GeoServer at [localhost/geoserver](http://localhost/geoserver/).
