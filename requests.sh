@@ -47,3 +47,25 @@ curl --request POST \
 		"out_crs": 3067
 	}
 }'
+
+printf '\n\nLake exterior ring generator as async process\n\n' && sleep 2
+curl --request POST \
+  --url http://pygeoapi-testing.gispocoding.fi/processes/exterior/execution \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"mode": "async",
+	"inputs": {
+		"name": "Haukkalampi"
+	}
+}
+'
+
+printf '\n\nGet status of lake exterior ring process jobs\n\n' && sleep 2
+curl --request GET \
+  --url http://pygeoapi-testing.gispocoding.fi/processes/exterior/jobs \
+  --header 'Content-Type: application/json'
+
+printf '\n\nGet results of async job by id\n\n' && sleep 2
+curl --request GET \
+  --url 'http://pygeoapi-testing.gispocoding.fi/processes/exterior/jobs/9da16186-7cfa-11ec-b73d-0242c0a85003/results?f=json' \
+  --header 'Content-Type: application/json'
